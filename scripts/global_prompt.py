@@ -51,19 +51,19 @@ class ExtensionTemplateScript(scripts.Script):
 
     if not enabled:
        return
-  
+
     prompt = p.prompt
     negative_prompt = p.negative_prompt
 
     if prePositive:
-       prompt = prePositive + ", " + prompt
+      prompt = f"{prePositive}, {prompt}"
     if postPositive:
-       prompt = prompt + ", " + postPositive
+      prompt = f"{prompt}, {postPositive}"
 
     if preNegative:
-       negative_prompt = preNegative + ", " + negative_prompt
+      negative_prompt = f"{preNegative}, {negative_prompt}"
     if postNegative:
-       negative_prompt = negative_prompt + ", " + postNegative
+      negative_prompt = f"{negative_prompt}, {postNegative}"
 
     p.all_prompts[0] = prompt
     p.all_negative_prompts[0] = negative_prompt
